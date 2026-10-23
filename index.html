@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>피지컬케어</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="피지컬케어는 직영 센터에서만 운영되는 센터 방문형 피지컬 케어 브랜드입니다. 영등포점, 여의도점, 강남점, 동탄점, 천안점.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+  /* Layout: 브랜드 헤더 → "센터 방문형" 선언 → 지점 그리드 → 케어 항목 → 푸터. 한 컬럼, 최대 1040px */
+  :root {
+    --bg: #f5f7f6;
+    --surface: #ffffff;
+    --ink: #13221f;
+    --muted: #5b6b67;
+    --line: #dbe3e0;
+    --accent: #1f6b5c;
+    --accent-soft: #e2efeb;
+    --font-display: "Gothic A1", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1614; --surface: #16201d; --ink: #e8efec; --muted: #9aaba6;
+      --line: #26332f; --accent: #5cc2a8; --accent-soft: #1b2e29; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1614; --surface: #16201d; --ink: #e8efec; --muted: #9aaba6;
+    --line: #26332f; --accent: #5cc2a8; --accent-soft: #1b2e29; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+    word-break: keep-all;
+  }
+  .wrap {
+    max-width: 1040px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+
+  header { border-bottom: 1px solid var(--line); background: var(--surface); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+  .logo { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--accent); display: grid; place-items: center; }
+  .logo-mark svg { width: 16px; height: 16px; }
+  .tag { font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+
+  .hero .wrap { padding-block: 64px 48px; display: grid; gap: 20px; }
+  .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p { color: var(--muted); max-width: 36em; font-size: 1.05rem; }
+
+  .notice { border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; display: grid; gap: 4px; max-width: 40em; }
+  .notice strong { font-family: var(--font-display); font-weight: 700; }
+  .notice span { color: var(--muted); font-size: 0.95rem; }
+
+  section .wrap { padding-block: 40px; display: grid; gap: 24px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
+  .section-head h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+  .section-head span { color: var(--muted); font-size: 0.9rem; }
+
+  .branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+  @media (max-width: 480px) { .branches { grid-template-columns: 1fr; } }
+  .branch { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 14px; align-content: start; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
+  .branch:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .branch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .branch .type { display: flex; justify-content: space-between; gap: 8px; }
+  @media (prefers-reduced-motion: reduce) { .branch { transition: none; } .branch:hover { transform: none; } }
+  .branch h3 { font-size: 1.25rem; font-weight: 800; }
+  .branch .region { color: var(--muted); font-size: 0.92rem; }
+  .branch .type { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; border-top: 1px solid var(--line); padding-top: 12px; }
+
+  .cares { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+  .care { padding: 20px 4px; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+  .care h3 { font-size: 1.05rem; font-weight: 700; }
+  .care p { color: var(--muted); font-size: 0.93rem; }
+  @media (min-width: 700px) { .care { padding: 22px 20px 22px 0; } }
+
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .step { display: grid; gap: 6px; }
+  .step b { font-family: var(--font-display); color: var(--accent); font-size: 0.85rem; }
+  .step h3 { font-size: 1.05rem; font-weight: 700; }
+  .step p { color: var(--muted); font-size: 0.93rem; }
+
+  footer { border-top: 1px solid var(--line); margin-top: 32px; background: var(--surface); }
+  footer .wrap { padding-block: 28px; display: grid; gap: 6px; color: var(--muted); font-size: 0.85rem; }
+  footer strong { color: var(--ink); font-family: var(--font-display); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/></svg>
+      </span>
+      피지컬케어
+    </div>
+    <span class="tag">센터 방문형</span>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">PHYSICAL CARE CENTER</span>
+      <h1>몸 관리는 <em>센터에서</em>,<br>피지컬케어</h1>
+      <p>피지컬케어는 직영 센터에서 체형 관리와 컨디셔닝을 제공하는 피지컬 케어 전문 브랜드입니다. 전문 장비와 공간이 갖춰진 센터에서만 케어를 진행합니다.</p>
+    </div>
+  </div>
+
+  <section id="branches">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>센터 안내</h2>
+        <span>전 지점 센터 내방 예약제</span>
+      </div>
+      <div class="branches">
+        <a class="branch" href="https://naver.me/xAfcieuR" target="_blank" rel="noopener">
+          <h3>영등포점</h3>
+          <p class="region">서울특별시 영등포구</p>
+          <p class="type">센터 내방 케어</p>
+        </a>
+        <a class="branch" href="https://naver.me/GMPpXX8A" target="_blank" rel="noopener">
+          <h3>여의도점</h3>
+          <p class="region">서울특별시 영등포구 여의도</p>
+          <p class="type">센터 내방 케어</p>
+        </a>
+        <a class="branch" href="https://naver.me/xCteAqS2" target="_blank" rel="noopener">
+          <h3>강남점</h3>
+          <p class="region">서울특별시 강남구</p>
+          <p class="type">센터 내방 케어</p>
+        </a>
+        <a class="branch" href="https://naver.me/GMPpXX8A" target="_blank" rel="noopener">
+          <h3>동탄점</h3>
+          <p class="region">경기도 화성시 동탄</p>
+          <p class="type">센터 내방 케어</p>
+        </a>
+        <a class="branch" href="https://naver.me/xllPDIKg" target="_blank" rel="noopener">
+          <h3>천안점</h3>
+          <p class="region">충청남도 천안시</p>
+          <p class="type">센터 내방 케어</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="care">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>케어 프로그램</h2>
+        <span>센터 내 1:1 진행</span>
+      </div>
+      <div class="cares">
+        <div class="care"><h3>체형 밸런스 케어</h3><p>자세와 체형 상태를 확인하고 불균형한 부위를 중심으로 관리합니다.</p></div>
+        <div class="care"><h3>근막 이완 케어</h3><p>뭉치고 굳은 근육과 근막을 풀어 움직임을 편하게 만듭니다.</p></div>
+        <div class="care"><h3>컨디셔닝 운동</h3><p>관리 후 상태를 유지할 수 있도록 맞춤 운동을 함께 진행합니다.</p></div>
+        <div class="care"><h3>스포츠 컨디셔닝</h3><p>운동 전후 회복과 퍼포먼스 관리를 위한 케어입니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>이용 방법</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><b>STEP 1</b><h3>지점 선택 · 예약</h3><p>가까운 피지컬케어 센터를 선택해 방문 일정을 예약합니다.</p></div>
+        <div class="step"><b>STEP 2</b><h3>센터 내방 · 상담</h3><p>센터에 방문하시면 현재 몸 상태를 확인하고 상담합니다.</p></div>
+        <div class="step"><b>STEP 3</b><h3>센터 내 케어</h3><p>센터의 전용 공간과 장비로 1:1 케어를 진행합니다.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>피지컬케어</strong>
+    <p>영등포점 · 여의도점 · 강남점 · 동탄점 · 천안점</p>
+    <p>© 2026 피지컬케어. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
