@@ -54,9 +54,9 @@
   .logo-mark svg { width: 16px; height: 16px; }
   .tag { font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
 
-  .hero .wrap { padding-block: 64px 48px; display: grid; gap: 20px; }
+  .hero .wrap { padding-block: 40px 8px; display: grid; gap: 14px; }
   .eyebrow { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; color: var(--accent); }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
+  .hero h1 { font-size: clamp(1.9rem, 4.4vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
   .hero h1 em { font-style: normal; color: var(--accent); }
   .hero p { color: var(--muted); max-width: 36em; font-size: 1.05rem; }
 
@@ -65,20 +65,24 @@
   .notice span { color: var(--muted); font-size: 0.95rem; }
 
   section .wrap { padding-block: 40px; display: grid; gap: 24px; }
+  #branches .wrap { padding-top: 24px; }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 12px; }
   .section-head h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
   .section-head span { color: var(--muted); font-size: 0.9rem; }
 
-  .branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+  .branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
   @media (max-width: 480px) { .branches { grid-template-columns: 1fr; } }
-  .branch { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 14px; align-content: start; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
+  .branch { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 14px; grid-template-rows: auto 1fr auto; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
   .branch:hover { border-color: var(--accent); transform: translateY(-2px); }
   .branch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .branch .type { display: flex; justify-content: space-between; gap: 8px; }
   @media (prefers-reduced-motion: reduce) { .branch { transition: none; } .branch:hover { transform: none; } }
   .branch h3 { font-size: 1.25rem; font-weight: 800; }
-  .branch .region { color: var(--muted); font-size: 0.92rem; }
-  .branch .type { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; border-top: 1px solid var(--line); padding-top: 12px; }
+  .branch dl { margin: 0; display: grid; gap: 10px; align-content: start; }
+  .branch dl div { display: grid; gap: 1px; }
+  .branch dt { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); }
+  .branch dd { margin: 0; font-size: 0.92rem; line-height: 1.5; }
+  .branch dd.tel { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .branch .type { font-size: 0.8rem; font-weight: 600; color: var(--accent); border-top: 1px solid var(--line); padding-top: 12px; display: flex; justify-content: space-between; gap: 8px; }
 
   .cares { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
   .care { padding: 20px 4px; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
@@ -131,28 +135,43 @@
       <div class="branches">
         <a class="branch" href="https://naver.me/xAfcieuR" target="_blank" rel="noopener">
           <h3>영등포점</h3>
-          <p class="region">서울특별시 영등포구</p>
-          <p class="type">센터 내방 케어</p>
+          <dl>
+            <div><dt>주소</dt><dd>서울 영등포구 영신로8길 3 1층 1호</dd></div>
+            <div><dt>전화</dt><dd class="tel">0507-1458-8388</dd></div>
+          </dl>
+          <p class="type"><span>네이버 지도에서 보기</span><span aria-hidden="true">→</span></p>
         </a>
         <a class="branch" href="https://naver.me/GMPpXX8A" target="_blank" rel="noopener">
           <h3>여의도점</h3>
-          <p class="region">서울특별시 영등포구 여의도</p>
-          <p class="type">센터 내방 케어</p>
+          <dl>
+            <div><dt>주소</dt><dd>서울 영등포구 국제금융로 112 4층 402호</dd></div>
+            <div><dt>전화</dt><dd class="tel">0507-1348-2836</dd></div>
+          </dl>
+          <p class="type"><span>네이버 지도에서 보기</span><span aria-hidden="true">→</span></p>
         </a>
         <a class="branch" href="https://naver.me/xCteAqS2" target="_blank" rel="noopener">
           <h3>강남점</h3>
-          <p class="region">서울특별시 강남구</p>
-          <p class="type">센터 내방 케어</p>
+          <dl>
+            <div><dt>주소</dt><dd>서울 강남구 강남대로62길 22 301호</dd></div>
+            <div><dt>전화</dt><dd class="tel">0507-1344-4371</dd></div>
+          </dl>
+          <p class="type"><span>네이버 지도에서 보기</span><span aria-hidden="true">→</span></p>
         </a>
         <a class="branch" href="https://naver.me/GMPpXX8A" target="_blank" rel="noopener">
           <h3>동탄점</h3>
-          <p class="region">경기도 화성시 동탄</p>
-          <p class="type">센터 내방 케어</p>
+          <dl>
+            <div><dt>주소</dt><dd>경기 오산시 북삼미로 183-6 2층</dd></div>
+            <div><dt>전화</dt><dd class="tel">0507-1367-7065</dd></div>
+          </dl>
+          <p class="type"><span>네이버 지도에서 보기</span><span aria-hidden="true">→</span></p>
         </a>
         <a class="branch" href="https://naver.me/xllPDIKg" target="_blank" rel="noopener">
           <h3>천안점</h3>
-          <p class="region">충청남도 천안시</p>
-          <p class="type">센터 내방 케어</p>
+          <dl>
+            <div><dt>주소</dt><dd>충남 천안시 서북구 두정중3길 43-4 2층 201호</dd></div>
+            <div><dt>전화</dt><dd class="tel">041-555-2869</dd></div>
+          </dl>
+          <p class="type"><span>네이버 지도에서 보기</span><span aria-hidden="true">→</span></p>
         </a>
       </div>
     </div>
